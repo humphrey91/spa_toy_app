@@ -3,5 +3,5 @@ class Micropost < ApplicationRecord
   belongs_to :user
   # Validations
   validates :content, length: { minimum: 1, maximum: 140 },
-                      presnece: true
+                      presence: true
 end

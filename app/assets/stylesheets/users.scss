@@ -1,0 +1,79 @@
+.bottom-page {
+  .pagination {
+    margin-top: 1rem;
+  }
+}
+
+.user-page {
+  margin-top: 5px;
+}
+
+#sidebar.affix {
+    position:fixed;
+    top: 0px;
+    left: 15px;
+}
+
+ul {
+  padding-left: 0;
+}
+
+div.form-check {
+    .form-check-input:checked+.form-check-sign .check {
+    background-color: #00bcd4;
+  }
+}
+
+.pagination-wrapper {
+  margin: 0 auto;
+}
+
+#sidebar {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
+}
+
+.users-list { 
+  @extend #sidebar;
+}
+
+.search-form {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.pagination {
+  @extend #sidebar;
+}
+
+ul.pagination {
+  justify-content: center !important;
+  flex-wrap: wrap;
+  li.active {
+    a{
+      background-color: #00bcd4 !important;
+      border-color: #00bcd4 !important;
+      box-shadow:  0 4px 5px 0 rgba(0,188,212,0.14), 0 1px 10px 0 rgba(0,188,212,0.12), 0 2px 4px -1px rgba(0,188,212,0.2) !important;
+    }
+  }
+}
+
+.is-focused {
+  input.form-control {
+    background-image: linear-gradient(to top,rgba(0,188,212,0.14) 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px);
+  }
+}
+
+.btn-github {
+  background-color: black !important;
+  border-color: black !important;
+}
+.btn-twitter {
+  background-color: #55acee !important;
+  border-color: #55acee !important;
+}
+.btn-google-plus {
+  background-color: #D84639 !important;
+  border-color: #D84639 !important;
+}
+
+

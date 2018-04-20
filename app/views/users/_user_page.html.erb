@@ -1,0 +1,16 @@
+<%= page_entries_info users %>
+<%= js_will_paginate(users, class: 'user-page',
+                            next_label: "<i class='material-icons'>keyboard_arrow_right</i>", 
+                            previous_label: "<i class='material-icons'>keyboard_arrow_left</i>",
+                            ) %>
+<div class="list-group users-list">
+  <% users.each do |user| %>     
+    <%= render 'user', { user: user, size: 50 } %>
+  <% end %>
+</div>
+<div class="pagination-wrapper">
+  <%= js_will_paginate(users, class: 'bottom-page user-page',
+                              next_label: "<i class='material-icons'>keyboard_arrow_right</i>", 
+                              previous_label: "<i class='material-icons'>keyboard_arrow_left</i>",
+                              ) %>
+</div>

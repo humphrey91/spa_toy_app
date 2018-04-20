@@ -1,39 +1,117 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true%>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 ml-auto mr-auto">
+      <div class="card card-signup">
+        
+        <h2 class="card-title text-center">Register</h2>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-5 ml-auto">
+              <div class="info info-horizontal">
+                  <div class="icon icon-rose">
+                      <i class="material-icons">timeline</i>
+                  </div>
+                  <div class="description">
+                      <h4 class="info-title">Marketing</h4>
+                      <p class="description">
+                          We've created the marketing campaign of the website. It was a very interesting collaboration.
+                      </p>
+                  </div>
+              </div>
+              <div class="info info-horizontal">
+                  <div class="icon icon-primary">
+                      <i class="material-icons">code</i>
+                  </div>
+                  <div class="description">
+                      <h4 class="info-title">Fully Coded in HTML5</h4>
+                      <p class="description">
+                          We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
+                      </p>
+                  </div>
+              </div>
+              <div class="info info-horizontal">
+                  <div class="icon icon-info">
+                      <i class="material-icons">group</i>
+                  </div>
+                  <div class="description">
+                      <h4 class="info-title">Built Audience</h4>
+                      <p class="description">
+                          There is also a Fully Customizable CMS Admin Dashboard for this product.
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-5 mr-auto">
+            <div class="row">
+              <div class="col-12 mr-auto">
+                <div class="social text-center">
+                    <button class="btn btn-just-icon btn-round btn-github">
+                        <i class="fa fa-github"></i>
+                    </button>
+                    <button class="btn btn-just-icon btn-round btn-twitter">
+                        <i class="fa fa-twitter"></i>
+                    </button>
+                    <button class="btn btn-just-icon btn-round btn-google-plus">
+                        <i class="fa fa-google-plus"> </i>
+                    </button>
+                    <h4> or be classical </h4>
+                </div>
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <%= devise_error_messages! %>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">info</i>
+                          </span>
+                        </div>
+                        <%= f.text_field :first_name, autofocus: true, class: "form-control", placeholder: "FirstName" %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">info_outline</i>
+                          </span>
+                        </div>
+                        <%= f.text_field :last_name, class: "form-control", placeholder: "LastName" %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">email</i>
+                          </span>
+                        </div>
+                        <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "Email..." %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">lock_outline</i>
+                          </span>
+                        </div>
+                        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password..." %>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="#pablo" class="btn btn-info btn-round">Get Started</a>  
+                    </div>
+                  <% end %>
+                </div>
+                <div class="col-12 text-center">
+                  <h3>or</h3>
+                  <%= render "users/shared/links", { extra_class: "text-info h2"} %>  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true%>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

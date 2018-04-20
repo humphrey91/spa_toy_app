@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   # Relationships
-  has_many :microposts
+  has_many :microposts, dependent: :destroy
   # Validations
   validates :first_name, presence: true,
                          length: { maximum: 20 }
@@ -10,9 +10,24 @@ class User < ApplicationRecord
   # Devise User Attributes
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  # Scopes
+  default_scope -> { order(created_at: :asc) }
+  # Name Helper
+  attr_accessor :name  
+  after_initialize do |user|
+    self.name = "#{first_name} #{last_name}"
+  end
+  # Pagination Setting
+  self.per_page = 15
+  
+  # Search Function
+  def self.search(search)
+    where("first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%") 
+  end
 
   private
 
+  # Make sure names are saved capped
   def cap_name 
     self.first_name = first_name.capitalize if attribute_present?("first_name")
     self.last_name = last_name.capitalize if attribute_present?("last_name")

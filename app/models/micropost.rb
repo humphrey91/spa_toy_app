@@ -4,4 +4,7 @@ class Micropost < ApplicationRecord
   # Validations
   validates :content, length: { minimum: 1, maximum: 140 },
                       presence: true
+  validates :user_id, presence: true   
+  # Scopes
+  default_scope -> { order(created_at: :desc) }
 end

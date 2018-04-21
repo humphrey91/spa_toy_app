@@ -1,38 +1,44 @@
-<nav class="navbar navbar-inverse navbar-expand-lg bg-dark">
-  <div class="container">
-    <div class="navbar-translate">
-      <%= link_to "SPA Toy", root_path, id: "logo", class: "navbar-brand" %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
-        <% if signed_in? %>
-          <li class="nav-item">
-            <%= link_to(current_user, class: "nav-link") do %>
-              <i class="material-icons">face</i>
-              Profile
-            <% end %>    
-          </li>
-          <li class="nav-item">
-            <%= link_to(edit_user_registration_path(current_user), class: "nav-link") do %>
-              <i class="material-icons">build</i>
-              Settings
+<div class="row no-gutters">
+  <div class="col-12">
+    <nav class="navbar navbar-inverse navbar-expand-lg bg-dark">
+      <div class="container">
+        <div class="navbar-translate">
+          <%= link_to "SPA Toy", root_path, id: "logo", class: "navbar-brand" %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
+            <% if signed_in? %>
+              <li class="dropdown nav-item">
+                <%= link_to("#", class: "dropdown-toggle nav-link", data: { toggle:"dropdown" }) do %>
+                    <i class="material-icons">account_circle</i> Profile
+                <% end %>   
+                <div class="dropdown-menu dropdown-with-icons">
+                  <%= link_to(user_path(current_user), class: "dropdown-item", remote: true, data: {turbolinks: false} ) do %>
+                    <i class="material-icons">grade</i> My Profile
+                  <% end %>
+                  <%= link_to(edit_user_registration_path, class: "dropdown-item", remote: true, data: {turbolinks: false} ) do %>
+                    <i class="material-icons">build</i> Settings
+                  <% end %>
+                </div>
+              </li>
+              <li class="nav-item">
+                <%= link_to(destroy_user_session_path, method: :delete, class: "nav-link") do %>
+                  <i class="material-icons">done</i>Log out
+                <% end %>
+              </li>
+            <% else %>
+              <li class="nav-item"><%= link_to "Log in",  new_user_session_path, class: "nav-link" %></li>
             <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to(destroy_user_session_path, method: :delete, class: "nav-link") do %>
-              <i class="material-icons">done</i>Log out
-            <% end %>
-          </li>
-        <% else %>
-          <li class="nav-item"><%= link_to "Log in",  new_user_session_path, class: "nav-link" %></li>
-        <% end %>
-      </ul>
-    </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </div>
-</nav>
+</div>
+

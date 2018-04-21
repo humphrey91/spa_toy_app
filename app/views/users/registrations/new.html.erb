@@ -65,7 +65,7 @@
                             <i class="material-icons">info</i>
                           </span>
                         </div>
-                        <%= f.text_field :first_name, autofocus: true, class: "form-control", placeholder: "FirstName" %>
+                        <%= f.text_field :first_name, autocomplete: "off", class: "form-control", placeholder: "FirstName" %>
                       </div>
                     </div>
                     <div class="form-group">
@@ -75,7 +75,7 @@
                             <i class="material-icons">info_outline</i>
                           </span>
                         </div>
-                        <%= f.text_field :last_name, class: "form-control", placeholder: "LastName" %>
+                        <%= f.text_field :last_name, autocomplete: "off", class: "form-control", placeholder: "LastName" %>
                       </div>
                     </div>
                     <div class="form-group">
@@ -85,7 +85,7 @@
                             <i class="material-icons">email</i>
                           </span>
                         </div>
-                        <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "Email..." %>
+                        <%= f.email_field :email, autocomplete: "off", class: "form-control", placeholder: "Email..." %>
                       </div>
                     </div>
                     <div class="form-group">
@@ -98,8 +98,18 @@
                         <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password..." %>
                       </div>
                     </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">lock_outline</i>
+                          </span>
+                        </div>
+                        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm Password" %>
+                      </div>
+                    </div>
                     <div class="text-center">
-                        <a href="#pablo" class="btn btn-info btn-round">Get Started</a>  
+                      <%= f.submit "Get Started", class: "btn btn-info btn-round" %>
                     </div>
                   <% end %>
                 </div>

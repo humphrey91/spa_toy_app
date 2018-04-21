@@ -1,1 +1,12 @@
-$(".user-page").html("<%= j render(partial: 'user_page', locals: { users: @users } ) %>");
+<% if !@users.blank? %>
+
+  $("#searchInput").val("");
+  $("#searchFormGroup").removeClass("is-focused is-filled");
+  $(".user-display-meter").html("<%= page_entries_info @users %>");
+  $(".user-page").html("<%= j render(partial: 'user_page', locals: { users: @users } ) %>");
+<% else %>
+  $("#searchInput").val("");
+  $("#searchFormGroup").removeClass("is-focused is-filled");
+  $(".user-display-meter").html("");
+  $(".user-page").html("<%= page_entries_info @users %>");
+<% end %>

@@ -21,8 +21,12 @@ class User < ApplicationRecord
   self.per_page = 15
   
   # Search Function
-  def self.search(search)
-    where("first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%") 
+  def self.search(search)    
+    if search.split(" ").length > 1
+      @search = search.split(" ")
+    end
+    where("first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ? OR first_name ILIKE ? AND last_name ILIKE ?",
+          "%#{search}%", "%#{search}%", "%#{search}%", "%#{@search[0]}%", "%#{@search[1]}%") 
   end
 
   private

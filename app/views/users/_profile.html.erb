@@ -1,7 +1,4 @@
-<ul id="sidebar">
+<ul id="sidebar" class="affix">
   <%= render 'user', { user: current_user, size: 100 } %>
 </ul>
 
-<% content_for :javascripts do %>
-  <%= javascript_include_tag 'users/profile' %>
-<% end %>

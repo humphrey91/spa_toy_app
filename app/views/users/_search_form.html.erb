@@ -1,12 +1,15 @@
-<nav class="nav">
+<nav class="nav search-header">
   <h1 style="margin: 0 auto;">All users</h1> 
-  <%= form_with url: users_path, method: :get, remote: true, class: 'search-form' do |form| %>
-    <div class="form-group input-group">
+  <%= form_with url: users_path, method: :get, remote: true, class: 'search-form', turbolinks: "false" do |form| %>
+    <div class="form-group input-group" id="searchFormGroup">
         <label for="searchInput" class="bmd-label-floating">Search</label>
-        <%= form.text_field :search, class: "form-control", id: "searchInput" %>
+        <%= form.text_field :search, class: "form-control", autocomplete: :off, id: "searchInput" %>
         <span class="input-group-btn">
           <%= form.submit :search, type: "submit", class: "btn btn-info btn-round btn-sm" %>     
         </span>
     </div>
   <% end %>
+  <div class="user-display-meter">
+    <%= page_entries_info @users %>
+  </div>
 </nav>

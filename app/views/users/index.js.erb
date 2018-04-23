@@ -1,5 +1,4 @@
 <% if !@users.blank? %>
-
   $("#searchInput").val("");
   $("#searchFormGroup").removeClass("is-focused is-filled");
   $(".user-display-meter").html("<%= page_entries_info @users %>");

@@ -20,3 +20,4 @@
 //= require material-kit.min
 //= require microposts
 //= require nouislider.min
+//= require ./users/box-test

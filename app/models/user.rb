@@ -24,9 +24,13 @@ class User < ApplicationRecord
   def self.search(search)    
     if search.split(" ").length > 1
       @search = search.split(" ")
+      where("first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ? OR first_name ILIKE ? AND last_name ILIKE ?",
+        "%#{search}%", "%#{search}%", "%#{search}%", "%#{@search[0]}%", "%#{@search[1]}%") 
+    else
+
+      where("first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ?",
+          "%#{search}%", "%#{search}%", "%#{search}%") 
     end
-    where("first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ? OR first_name ILIKE ? AND last_name ILIKE ?",
-          "%#{search}%", "%#{search}%", "%#{search}%", "%#{@search[0]}%", "%#{@search[1]}%") 
   end
 
   private

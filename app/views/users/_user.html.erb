@@ -1,5 +1,12 @@
-<%= link_to(user, class: "list-group-item list-group-item-action") do %>
-  <%= gravatar_for user, size: size %>
-  <%= user.name %>
+<% if use_link %>
+  <%= link_to(user, class: "list-group-item list-group-item-action", remote: true) do %>
+    <%= gravatar_for user, size: size %>
+    <%= user.name %>
+  <% end %>
+<% else %>
+  <div class="list-group-item">
+    <%= gravatar_for user, size: size %>
+    <%= user.name %>
+  </div>
 <% end %>
-
+  

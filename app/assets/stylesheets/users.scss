@@ -14,9 +14,13 @@
 
 .parent-profile #sidebar {
   box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.05);
+  .test-class {
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 3s;
+  }
   &.affix {
     position: sticky;
-    position: -webkit-sticky;
     top: 15px;
   }
 }
@@ -41,6 +45,7 @@
 }
 
 .main-page {
+  
   .search-header {
     box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.05);
     .user-display-meter {

@@ -8,6 +8,27 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def twitter
   # end
 
+  def github
+    oauthorize "github"
+  end
+
+  def google_oauth2
+    oauthorize "gplus"
+  end
+
+  private
+
+    def oauthorize(kind)
+      @user = User.from_omniauth(request.env["omniauth.auth"].except("extra"))
+      if @user.persisted?
+        sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
+        FlashNotificationsJob.set(wait: 1.seconds).perform_later current_user.id, "info", "Welcome", "Have a look around."
+      else
+        session["devise.#{kind}_data"] = request.env["omniauth.auth"].except("extra")
+        redirect_to new_user_registration_url
+      end  
+    end
+
   # More info at:
   # https://github.com/plataformatec/devise#omniauth
 

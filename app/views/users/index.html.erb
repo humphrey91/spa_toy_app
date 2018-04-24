@@ -1,12 +1,12 @@
 <%= render 'layouts/header' %>
 
 <div class="row no-gutters">
-  
-  <div class="col-xl-3 col-lg-3 col-md-4 parent-profile">
-      <%= render 'profile' %>
+
+  <div class="col-lg-3  parent-profile">
+      <%= render 'profile', { user: @user, link: true, show_posts: false} %>
   </div>
   
-  <div class="col-xl-6 col-lg-9 col-md-8 main-page">
+  <div class="col-lg-6 main-page">
     <div class="people-index-list">  
       <%= render 'search_form', { users: @users } %> 
       <div class="user-page">

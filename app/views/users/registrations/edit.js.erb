@@ -1,1 +1,22 @@
-$(".main-page").html("<%= j render(partial: 'users/registrations/edit' ) %>");
+var mainVar = {
+     
+    }
+
+$('#sidebar .list-group-item').removeAttr("href"); 
+
+function setTransform(mainVar) {
+  $('.full-profile-info').css({'max-height':"0px"})
+  $('.full-profile-info').html("<%= j render(partial: 'users/registrations/edit' ) %>")
+  $('.full-profile-info').animate({
+    'max-height': "600px",
+  }, 1200)
+  $('.parent-profile').removeClass('col-lg-3').addClass('col-lg-6 offset-lg-3')
+  $('.main-page').removeClass('col-lg-6').addClass('col-lg-3')
+
+  if ($( window ).outerWidth() < 992) {
+    $('html, body').animate({ scrollTop: 0 }, 400);
+  }
+}
+
+setTransform(mainVar);
+

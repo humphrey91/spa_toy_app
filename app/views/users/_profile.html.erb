@@ -1,7 +1,11 @@
 <ul id="sidebar" class="affix">
-  <%= render 'user', { user: current_user, size: 100, use_link: true } %>
-  <div class="test-class">
-
+  <div class="user-box-head">
+    <%= render 'users/user', { user: user, size: 100, use_link: link } %>
+  </div>
+  <div class="full-profile-info col-12">
+    <% if show_posts %>
+      <%= render "show", { user: user }%> 
+    <% end %>
   </div>
 </ul>
 

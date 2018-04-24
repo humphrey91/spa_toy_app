@@ -1,4 +1,7 @@
-<% if !@users.blank? %>
+<% if params[:home] %>
+  $('.parent-profile').removeClass('col-lg-6 offset-lg-3').addClass('col-lg-3 ')
+  $('.main-page').removeClass('col-lg-3').addClass('col-lg-6')
+<% elsif !@users.blank? %>
   $("#searchInput").val("");
   $("#searchFormGroup").removeClass("is-focused is-filled");
   $(".user-display-meter").html("<%= page_entries_info @users %>");
@@ -7,5 +10,5 @@
   $("#searchInput").val("");
   $("#searchFormGroup").removeClass("is-focused is-filled");
   $(".user-display-meter").html("");
-  $(".user-page").html("<%= page_entries_info @users %>");
+  $(".main-page.user-page").html("<%= page_entries_info @users %>");
 <% end %>

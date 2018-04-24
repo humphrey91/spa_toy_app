@@ -1,7 +1,9 @@
 <nav class="nav search-header">
-  <h1 style="margin: 0 auto;">All users</h1> 
+  <%= link_to(users_path(home: true),class: "text-info", style: "margin: 0 auto;", remote: true) do %>
+    <h1 style="margin: 0 auto;">All users</h1> 
+  <% end %>
   <%= form_with url: users_path, method: :get, remote: true, class: 'search-form', turbolinks: "false" do |form| %>
-    <div class="form-group input-group" id="searchFormGroup">
+    <div class="form-group input-group " id="searchFormGroup">
         <label for="searchInput" class="bmd-label-floating">Search</label>
         <%= form.text_field :search, class: "form-control", autocomplete: :off, id: "searchInput" %>
         <span class="input-group-btn">

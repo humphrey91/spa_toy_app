@@ -1,19 +1,21 @@
 <div class="container">
     <div class="row align-items-center" style="height: 100vh;">
-        <div class="col-md-6 ml-auto mr-auto">
+        <div class="col-md-8 ml-auto mr-auto">
             <div class="card card-signup">  
               <div class="card-header card-header-info text-center">
                   <h4>Log In</h4>
                   <div class="social-line">
-                      <a href="#pablo" class="btn btn-link btn-just-icon">
+                      <%= link_to(user_github_omniauth_authorize_path, class: "btn btn-link btn-just-icon") do %> 
                           <i class="fa fa-github"></i>
-                      </a>
+                      <% end %>
+                
                       <a href="#pablo" class="btn btn-link btn-just-icon">
                           <i class="fa fa-twitter"></i>
                       </a>
-                      <a href="#pablo" class="btn btn-link btn-just-icon">
+                      
+                      <%= link_to(user_google_oauth2_omniauth_authorize_path, class:"btn btn-link btn-just-icon") do %>
                           <i class="fa fa-google-plus"></i>
-                      </a>
+                      <% end %>
                   </div>
               </div>
               <p class="text-divider">Or Be Classical</p>

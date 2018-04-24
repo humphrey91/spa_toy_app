@@ -1,52 +1,27 @@
 var mainVar = {
-      mainPageWidth: $('.main-page').width(),
-      mainPageLeft: $('.main-page').offset().left,
-      mainPageTop: $('.main-page').offset().top
+     
     }
 
-$('.list-group-item').removeAttr("href"); 
+$('#sidebar .list-group-item').removeAttr("href"); 
 
 function setTransform(mainVar) {
-  if ($(window).width() > 767) {
-    var boxPad = 15
-  } else {
-    var boxPad = 7.5
-  }
-  $("#sidebar").css({"position": "absolute"});
-  $("#sidebar").css({"top": 0 });
-  $(".main-page").css({
-    "position": "absolute",
-    "top": mainVar.mainPageTop,
-    "left" : mainVar.mainPageLeft,
-  });
-  $(".main-page").animate({
-    height: 0,
-    left: "100%",
-    opacity: 0,
-  }, 1200);
   
-  $("#sidebar").animate({
-    left: mainVar.mainPageLeft + 7.5,
-    width: mainVar.mainPageWidth + boxPad,
-    height: "600px",
-  }, 1200, function(){
-    $('.main-page').css({
-        position: "relative",
-        left: 0,
-        top: 0,
-        height: "100%",
-        opacity: 1,
-    })    
-    $('.parent-profile').html("");
-    $('.main-page').html("<%= j render(partial: 'full_profile' ) %>");
-    $('#sidebar').css({
-      height: "600px",
-      "box-shadow": "0 0.5rem 0.75rem rgba(0, 0, 0, 0.05)",
-    });
-  });
+  <% if !params[:page] %>
+    $('.parent-profile').html("<%= j render(partial: 'users/profile', locals: { user: @user, link: false, show_posts: true } ) %>");
+    $('.full-profile-info').animate({
+      'max-height': "600px",
+    }, 1200);
+    $('.parent-profile').removeClass('col-lg-3').addClass('col-lg-6 offset-lg-3')
+    $('.main-page').removeClass('col-lg-6').addClass('col-lg-3')
+  <% else %>
+    $('.user-box-head').html("<%= j render( 'users/user', { user: @user, size: 100, use_link: false } ) %> ");
+    $('.full-profile-info').html("<%= j render(partial: 'users/show', locals: { user: @user } ) %>");
+  <% end %>
+  if ($( window ).outerWidth() < 992) {
+    $('html, body').animate({ scrollTop: 0 }, 400);
+  }
+  
+  
 }
 
-function resetPage(mainVar) {
-  
-}
 setTransform(mainVar);

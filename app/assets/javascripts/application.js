@@ -14,10 +14,12 @@
 //= require popper
 //= require rails-ujs
 //= require turbolinks
+//= require cable
+//= require_tree ./channels
+//= require_tree ./users
 //= require a-moment.min
 //= require bootstrap-datetimepicker.min
 //= require bootstrap-material-design.min
 //= require material-kit.min
 //= require microposts
 //= require nouislider.min
-//= require ./users/box-test

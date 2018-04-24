@@ -25,8 +25,10 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
-
+  config.read_encrypted_secrets = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.active_job.queue_adapter     = :sidekiq
+  config.action_cable.allowed_request_origins =  ['http://localhost:3000', 'http://127.0.0.1:3000']
 
 
   # Don't care if the mailer can't send.

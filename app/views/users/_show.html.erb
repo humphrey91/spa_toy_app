@@ -1,3 +1,8 @@
-<% user.microposts.each do  |post| %>
-  <p> <%= post.content %> </p>
-<% end %>
+ <div>
+  <%= js_will_paginate(@microposts, next_label: "<i class='material-icons'>keyboard_arrow_right</i>", 
+                                  previous_label: "<i class='material-icons'>keyboard_arrow_left</i>",
+                                  ) %>
+  <% @microposts.each do  |post| %>
+    <h3> <%= post.content %> </h3>
+  <% end %>
+</div>

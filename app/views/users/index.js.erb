@@ -1,6 +1,8 @@
 <% if params[:home] %>
   $('.parent-profile').removeClass('col-lg-6 offset-lg-3').addClass('col-lg-3 ')
   $('.main-page').removeClass('col-lg-3').addClass('col-lg-6')
+<% elsif @index %>
+  $(".feed").html("<%= j render(partial: 'microposts/index' ) %>");
 <% elsif !@users.blank? %>
   $("#searchInput").val("");
   $("#searchFormGroup").removeClass("is-focused is-filled");

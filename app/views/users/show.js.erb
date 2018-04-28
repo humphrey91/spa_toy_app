@@ -1,27 +1,33 @@
-var mainVar = {
-     
-    }
+var showVars = {
+  old_user: $('#user-id').text(),
+  current_user: "<%= @user.id %>",
+  empty: isEmpty($('.full-profile-info')),
+  show_test: $('#show-test').length === 1,
+}
 
-$('#sidebar .list-group-item').removeAttr("href"); 
+function isEmpty( el ){
+    return !$.trim(el.html())
+}
 
-function setTransform(mainVar) {
+function setTransform(showVars) {
   
-  <% if !params[:page] %>
-    $('.parent-profile').html("<%= j render(partial: 'users/profile', locals: { user: @user, link: false, show_posts: true } ) %>");
-    $('.full-profile-info').animate({
-      'max-height': "600px",
-    }, 1200);
+  <% if params[:page].nil? && params[:user_page].nil? %> 
+    console.log(showVars.empty)
+    if (showVars.old_user != showVars.current_user || showVars.empty || showVars.show_test  ) {
+      $('.parent-profile').html("<%= j render(partial: 'users/profile', locals: { show_posts: true } ) %>");
+      $('.full-profile-info').animate({
+        'max-height': "100vh",
+      }, 1200);
+    }
     $('.parent-profile').removeClass('col-lg-3').addClass('col-lg-6 offset-lg-3')
     $('.main-page').removeClass('col-lg-6').addClass('col-lg-3')
   <% else %>
-    $('.user-box-head').html("<%= j render( 'users/user', { user: @user, size: 100, use_link: false } ) %> ");
-    $('.full-profile-info').html("<%= j render(partial: 'users/show', locals: { user: @user } ) %>");
+    $('.parent-profile').html("<%= j render(partial: 'users/profile', locals: { show_posts: true } ) %>");
+    $('.full-profile-info').css({'max-height': '100vh'})
   <% end %>
   if ($( window ).outerWidth() < 992) {
     $('html, body').animate({ scrollTop: 0 }, 400);
   }
-  
-  
 }
 
-setTransform(mainVar);
+setTransform(showVars);

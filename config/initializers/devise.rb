@@ -259,7 +259,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   config.omniauth :github, Rails.application.secrets.github_app_id, Rails.application.secrets.github_app_secret, scope: 'user'
   config.omniauth :google_oauth2, Rails.application.secrets.gplus_app_id, Rails.application.secrets.gplus_app_secret
-  OmniAuth.config.full_host = Rails.env.production? ? 'https://domain.com' : 'http://localhost:3000'
+  OmniAuth.config.full_host = Rails.env.production? ? 'http://localhost:3000' : 'http://localhost:3000'
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

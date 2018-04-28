@@ -11,7 +11,10 @@
   </head>
 
   <body>
-    
+  
+    <% unless user_signed_in? %>
+      <%= stylesheet_link_tag 'login' %>
+    <% end %>  
     <%= yield %>
     
     <div id="flash-messages">

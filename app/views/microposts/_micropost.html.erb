@@ -1,0 +1,17 @@
+<div class="post-tile">
+  <div class="row">
+    <div class="post-img-box align-self-start">
+      <div class="post-img-bar">
+        <%= gravatar_for micropost.user, size: 60 %>
+      </div>
+    </div>
+    <div class="post-content-box">
+      <div class="post-title-bar">
+        <h5 class="title"><%= link_to micropost.user.name, user_path(micropost.user), remote: true %> <small class="post-created-at"><%= getCreatedAtPost(micropost) %></small></h5>
+      </div>
+      <div class="post-content-bar">
+        <p> <%= micropost.content %> </p>
+      </div>
+    </div>
+  </div>
+</div>

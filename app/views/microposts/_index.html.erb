@@ -1,0 +1,4 @@
+<%= js_will_paginate(@microposts, param_name: 'index_page', per_page: 20, next_label: "<i class='material-icons'>keyboard_arrow_right</i>", 
+                                  previous_label: "<i class='material-icons'>keyboard_arrow_left</i>",
+                                  ) %> 
+<%= render @microposts %>

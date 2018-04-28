@@ -22,7 +22,7 @@ class MicropostTest < ActiveSupport::TestCase
   end
 
   test "content should be at most 140 characters" do 
-    @micropost.content = "a" * 141
+    @micropost.content = "a" * 281
     assert_not @micropost.valid? 
   end
 

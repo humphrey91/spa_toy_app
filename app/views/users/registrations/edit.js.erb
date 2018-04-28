@@ -6,9 +6,10 @@ $('#sidebar .list-group-item').removeAttr("href");
 
 function setTransform(mainVar) {
   $('.full-profile-info').css({'max-height':"0px"})
+  $('.user-box-head').html("<%= j render(partial: 'users/user', locals: { user: current_user, size: 60 } ) %>")
   $('.full-profile-info').html("<%= j render(partial: 'users/registrations/edit' ) %>")
   $('.full-profile-info').animate({
-    'max-height': "600px",
+    'max-height': "100vh",
   }, 1200)
   $('.parent-profile').removeClass('col-lg-3').addClass('col-lg-6 offset-lg-3')
   $('.main-page').removeClass('col-lg-6').addClass('col-lg-3')

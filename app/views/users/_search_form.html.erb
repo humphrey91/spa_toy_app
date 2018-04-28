@@ -1,6 +1,6 @@
 <nav class="nav search-header">
   <%= link_to(users_path(home: true),class: "text-info", style: "margin: 0 auto;", remote: true) do %>
-    <h1 style="margin: 0 auto;">All users</h1> 
+    <h1 style="margin: 0 auto;" class="title">All users</h1> 
   <% end %>
   <%= form_with url: users_path, method: :get, remote: true, class: 'search-form', turbolinks: "false" do |form| %>
     <div class="form-group input-group " id="searchFormGroup">

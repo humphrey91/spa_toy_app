@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
 
-  resources :microposts, path: :posts
 
   mount Sidekiq::Web => '/sidekiq'
   mount ActionCable.server => '/cable'

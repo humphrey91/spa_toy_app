@@ -1,0 +1,10 @@
+<div>
+  <div class="feed-header">
+    <%= link_to(users_path(home: true),class: "text-info", style: "margin: 0 auto;", remote: true) do %>
+      <h1 style="margin: 0 auto; padding-left: 15px;" class="title">Feed</h1> 
+    <% end %>
+  </div>
+  <div class="feed">                           
+    <%= render partial: "microposts/index" %>
+  </div>
+</div>

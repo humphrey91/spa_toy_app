@@ -1,11 +1,13 @@
 <ul id="sidebar" class="affix">
-  <div class="user-box-head">
-    <%= render 'users/user', { user: user, size: 100, use_link: link } %>
-  </div>
-  <div class="full-profile-info col-12">
-    <% if show_posts %>
-      <%= render "show", { user: user }%> 
-    <% end %>
+  <div class="row no-gutters">
+    <div class="user-box-head col-12">
+      <%= render 'users/user', { size: 60 } %>       
+    </div>
+    <div class="full-profile-info col-12">
+      <% if show_posts %>
+        <%= render "show" %> 
+      <% end %>
+    </div>
   </div>
 </ul>
 

@@ -42,6 +42,7 @@ gem 'omniauth-google-oauth2'
 gem 'faker',                   '1.7.3'
 gem 'will_paginate',           '~> 3.1.1'
 gem 'bootstrap-will_paginate', '1.0.0'
+gem 'rails_12factor'
 
 
 # Use Capistrano for deployment

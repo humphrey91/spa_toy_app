@@ -11,6 +11,21 @@
   top: 90px;
 }
 
+#error_explanation {
+  h2 {
+    text-align: center;
+  }
+  div {
+    padding-left: 60px;
+  }
+  
+}
+
+.edit-user-page {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .flash {
   opacity: 1 !important;
   transition: opacity 1s ease-in-out;
@@ -31,63 +46,57 @@ body {
   transition: all 1200ms;
 }
 
-#sidebar {
-  box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.05);
-  .full-profile-info {
-    max-height: 0;
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-      display: none;
+a.list-group-item {
+  
+  div {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 0 !important;
+    p.user-header-image {
+      width: 60px;
+      margin: 0 auto; 
     }
-  }
-  .user-box {
-    .user-name-box {
-      margin: 0 auto;
+    p.user-header-name {
+      font-size: calc(12px + 2vw);
+      margin-right: 0 !important;
+      margin-bottom: 0 !important;
+      b {
+        margin-right: 0px !important;
+      }
     }
-    @media only screen and (max-width: 600px) {
-      .user-img-box {
-        height: 60px;
-        img {
-          min-height: 70px;
-          max-height: 70px;
-        }
-      }
-      .user-name-box {
-        min-height: 60px;
-        max-height: 70px;
-        span {
-          white-space: normal;
-          min-height: 60px;
-          max-height: 70px;
-        }
-      }
+    img {
+      margin-right: 0px !important;
+      margin-bottom: 0px !important;
     }
   }
 }
 
-.user-box {
-  width: 100%;
-  display: flex;
-  white-space: nowrap;
-  p.user-img-box {
-    margin-right: 0 !important;
-    img {
-      display: inline-flex;
-      align-items: center;
-      min-height: 100px;
-      margin-left: 15px;
-      margin-right: 0px !important;
+.main-page {
+  a.list-group-item {
+    p {
+      font-size: calc(12px + 1vw) !important;
     }
   }
-  span {
-    font-size: calc(12px + 1vw);
-    display: inline-flex;
-    align-items: center;
-    min-height: 100px;
+}
+
+#sidebar {
+  box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.05);
+  .user-box-head {
+    box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.05);
+
+    ul.pagination {
+      box-shadow: none;
+    }
   }
-  p.user-name-box {
-    max-height: 100px;
-    margin-left: 10px;
+  .full-profile-info {
+    max-height: 0;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
+    overflow: hidden;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
@@ -95,30 +104,6 @@ body {
   margin-top: 5px;
   .users-list {
     box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.05);
-    .user-box {
-      vertical-align: middle;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      p.user-name-box {
-        height: 60px;
-        margin-top: 5px !important;
-        span {
-          height: 60px;
-          min-height: 60px;
-        }
-      }
-      p.user-img-box {
-        margin-top: 5px;
-        height: 60px;
-        display: inline-block;
-        vertical-align: middle;
-        img {
-          max-width: 60px;
-          max-height: 60px;
-          min-height: 60px;
-        }
-      }
-    }
     @media (max-width: 920px) {
     .list-group-item-action:hover{
       .hide { display:none !important; }
@@ -131,32 +116,11 @@ body {
   
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1400px) {
-  .user-box {
-    width: 100%;
-    display: flex;
-    p.user-img-box img {
-      max-width: 60px !important;
-      max-height: 60px !important;
-      min-height: 60px;
-    }
-    span {
-      min-height: 60px;
-    }
-  }
-}
-
 @media only screen and (min-width: 992px) {
   #sidebar {
     margin-bottom: 0 !important;
     .list-group-item {
       max-height: 137px;
-    }
-    .user-box {
-      white-space: normal;
-    }
-    p.user-name-box {
-      margin-left: 15px;
     }
   }
   .main-page {
@@ -173,12 +137,6 @@ body {
 }
 
 @media only screen and (max-width: 991px) {
-  #sidebar .user-box span {
-    font-size: calc(24px + 2.5vw);
-  }
-  .user-box span {
-    font-size: calc(14px + 2.5vw);
-  }
   .main-page, .parent-profile {
     padding-left: 15px !important;
     padding-right: 15px !important;

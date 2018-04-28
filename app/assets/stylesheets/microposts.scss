@@ -1,3 +1,86 @@
 // Place all the styles related to the Microposts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.post-tile {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #D8D8D8;
+  .post-img-box {
+    width: 20%;
+    padding-left: 20px;
+    padding-top: 15px;
+  }
+  .post-content-box {
+    width: 80%;
+    padding-right:20px;
+    padding-top: 10px;
+  }
+  .post-img-bar {
+    width: 60px;
+    margin: 0 auto; 
+  }
+  @media (max-width: 510px) {
+    .post-img-box {
+      width: 30%;
+    }
+    .post-content-box {
+      width: 70%;
+    }
+  }
+ .post-title-bar {
+    h5 {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      
+      .post-created-at::before {
+        content: ".";
+        display: inline-block;
+        vertical-align: 12%;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+@media (min-width: 991px) {
+  .parent-profile.col-lg-3 {
+    .post-tile {
+      div.post-img-box {
+        width: 30%;
+        .post-img-bar {
+          img {
+            height: 40px;
+          }
+        }
+      }
+      div.post-content-box {
+        width: 70%;
+      }
+    }
+    .user-box-head {
+      p.user-name-box {
+        
+        padding-left: 20px;
+      }
+    }
+    a.list-group-item {
+      p {
+        font-size: calc(12px + 1vw) !important;
+      }
+    }
+  }
+  .main-page.col-lg-3 {
+    .post-tile {
+      div.post-img-box {
+        width: 30%;
+        .post-img-bar {
+          img {
+            height: 40px;
+          }
+        }
+      }
+      div.post-content-box {
+        width: 70%;
+      }
+    }
+  }
+}

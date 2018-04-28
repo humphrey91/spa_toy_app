@@ -1,28 +1,14 @@
-<% if use_link %>
-  <%= link_to(user_path(user), class: "list-group-item list-group-item-action", remote: true) do %>
-    <div class="user-box">
-      <p class="user-img-box">
-        <%= gravatar_for user, size: size %>
+
+  <%= link_to(user_path(@user.id), class: "list-group-item list-group-item-action", remote: true) do %>
+    <div class="col-4 col-xl-4 col-lg-4 col-md-3 align-self-center">
+      <p class="user-header-image">
+        <%= gravatar_for @user, size: size %>
       </p>
-      <p  class="user-name-box">
-        <span>
-          <%= user.name %>
-        </span>
+    </div>
+    <div class="col-8 col-xl-8 col-lg-8 col-md-9 align-self-center">
+      <p class="user-header-name">        
+        <b><%= @user.name %></b>
       </p>
     </div>
   <% end %>
-<% else %>
-  <div class="list-group-item">
-    <div class="user-box">
-      <p class="user-img-box">
-        <%= gravatar_for user, size: size %>  
-      </p>
-      <p  class="user-name-box">
-        <span>
-          <%= user.name %>
-        </span>
-      </p>
-    </div>
-  </div>
-<% end %>
-  
+  <div id="user-id" style="display: none;"><%= @user.id %></div>   

@@ -16,7 +16,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in("Email", with: "Humphrey.js@gmail.com")
     fill_in("Password", with: "123456")
     click_on("Log in")
-    assert_selector "p", text: "Signed in successfully."
+    assert_selector "a", text: "doneLOG OUT"
   end
 
   test "signing up a new user" do
@@ -27,7 +27,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in("user_password", with: "123456")
     fill_in("user_password_confirmation", with: "123456")
     click_on("Get Started")
-    assert_selector "p", text: "Welcome! You have signed up successfully."
+    assert_selector "a", text: "doneLOG OUT"
   end
   
 end
